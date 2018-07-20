@@ -14,6 +14,10 @@ const fullCards = ['fa fa-diamond', 'fa fa-diamond', 'fa fa-paper-plane-o', 'fa 
 
  const deck = document.querySelector('.deck');
 
+// variable to hold cards
+ let openCards = [];
+ let matchedCards = [];
+
  for (let i = 0; i < fullCards.length; i++) {
    const card = document.createElement('li');
    card.classList.add('card');
@@ -25,8 +29,46 @@ const fullCards = ['fa fa-diamond', 'fa fa-diamond', 'fa fa-paper-plane-o', 'fa 
  // Card Event Listener function (flips card)
  function click(card) {
    card.addEventListener('click', function() {
-     card.classList.add('open', 'show');
+     const currentCard = this;
+     const previousCard = openCards[0];
+
+     if (openCards.length === 1) {
+       card.classList.add('open', 'show');
+       openCards.push(this);
+
+       // Call function to compare open cards
+       compare(currentCard, previousCard);
+
+     } else {
+       card.classList.add('open', 'show');
+       openCards.push(this);
+     }
+
+    // console log for testing purposes - will delete later
+    console.log(card.innerHTML);
    })
+ }
+
+ function compare(currentCard, previousCard) {
+   if (currentCard.innerHTML === previousCard.innerHTML) {
+     console.log('Match!');
+     // Push matched cards into variable
+     matchedCards.push(currentCard, previousCard);
+
+     currentCard.classList.add('match');
+     previousCard.classList.add('match');
+     // resets openCards when match is found
+     openCards = [];
+   } else {
+     // resets openCards when match is not found
+     openCards = [];
+     // Allow 2nd card to display - timeout for 550ms
+     setTimeout(function() {
+       console.log('No Match~!');
+       currentCard.classList.remove('open', 'show');
+       previousCard.classList.remove('open', 'show');
+     }, 550);
+   }
  }
 
 // Shuffle function from http://stackoverflow.com/a/2450976
