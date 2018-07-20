@@ -3,7 +3,7 @@
  */
 
 const fullCards = ['fa fa-diamond', 'fa fa-diamond', 'fa-paper-plane-o', 'fa-paper-plane-o', 'fa fa-ancor', 'fa fa-ancor', 'fa fa-bolt', 'fa fa-bolt',
-'fa fa-cube', 'fa fa-cube', 'fa fa-leaf', 'fa fa-leaf', 'fa fa-bicycle', 'fa fa-bicycle', 'fa fa-bomb', 'fa fa-bomb']
+'fa fa-cube', 'fa fa-cube', 'fa fa-leaf', 'fa fa-leaf', 'fa fa-bicycle', 'fa fa-bicycle', 'fa fa-bomb', 'fa fa-bomb'];
 
 /*
  * Display the cards on the page
@@ -11,6 +11,15 @@ const fullCards = ['fa fa-diamond', 'fa fa-diamond', 'fa-paper-plane-o', 'fa-pap
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
+
+ const deck = document.querySelector('.deck');
+
+ for (let i = 0; i < fullCards.length; i++) {
+   const card = document.createElement('li');
+   card.classList.add('card');
+   card.innerHTML = `<i class="${fullCards[i]}"></i>`;
+   deck.appendChild(card);
+ }
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
