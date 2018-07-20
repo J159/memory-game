@@ -19,6 +19,14 @@ const fullCards = ['fa fa-diamond', 'fa fa-diamond', 'fa-paper-plane-o', 'fa-pap
    card.classList.add('card');
    card.innerHTML = `<i class="${fullCards[i]}"></i>`;
    deck.appendChild(card);
+   click(card);
+ }
+
+ // Card Event Listener function (flips card)
+ function click(card) {
+   card.addEventListener('click', function() {
+     card.classList.add('open', 'show');
+   })
  }
 
 // Shuffle function from http://stackoverflow.com/a/2450976
