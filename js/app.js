@@ -49,6 +49,7 @@ const fullCards = ['fa fa-diamond', 'fa fa-diamond', 'fa fa-paper-plane-o', 'fa 
    })
  }
 
+// Compares current and previous cards to determine match
  function compare(currentCard, previousCard) {
    if (currentCard.innerHTML === previousCard.innerHTML) {
      console.log('Match!');
@@ -57,10 +58,14 @@ const fullCards = ['fa fa-diamond', 'fa fa-diamond', 'fa fa-paper-plane-o', 'fa 
 
      currentCard.classList.add('match');
      previousCard.classList.add('match');
-     // resets openCards when match is found
+     // clear openCards when match is found
      openCards = [];
+
+     // check if match is won
+     youWon();
+
    } else {
-     // resets openCards when match is not found
+     // clear openCards when match is not found
      openCards = [];
      // Allow 2nd card to display - timeout for 550ms
      setTimeout(function() {
@@ -70,6 +75,13 @@ const fullCards = ['fa fa-diamond', 'fa fa-diamond', 'fa fa-paper-plane-o', 'fa 
      }, 550);
    }
  }
+
+function youWon() {
+  if (matchedCards.length === fullCards.length) {
+    alert("YOU WON!!");
+  }
+}
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
