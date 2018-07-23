@@ -78,14 +78,31 @@ const fullCards = ['fa fa-diamond', 'fa fa-diamond', 'fa fa-paper-plane-o', 'fa 
        previousCard.classList.remove('open', 'show', 'disable');
      }, 550);
    }
+
+   // Calls addMove function, adds move to move counter
+   addMove();
  }
 
+// Checks if game is complete
 function youWon() {
   if (matchedCards.length === fullCards.length) {
     alert("YOU WON!!");
   }
 }
 
+// Variables for move counter function
+const movesContainer = document.querySelector('.moves');
+let moves = 0;
+movesContainer.innerHTML = 0;
+
+// Adds move to move variable/counter
+function addMove() {
+  moves++;
+  movesContainer.innerHTML = moves;
+}
+
+
+// Restart the game when clicking restart icon
 const restartBtn = document.querySelector('.restart');
 restartBtn.addEventListener('click', function() {
   // Clears deck
