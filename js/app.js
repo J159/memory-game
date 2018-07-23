@@ -111,8 +111,10 @@ restartBtn.addEventListener('click', function() {
   // Calls 'init' function to re-initialize game
   init();
 
-  // Resets matchedCards variables
+  // Resets matchedCards and move variables
   matchedCards = [];
+  moves = 0;
+  movesContainer.innerHTML = moves;
 })
 
 
