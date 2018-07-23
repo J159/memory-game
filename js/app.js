@@ -18,12 +18,16 @@ const fullCards = ['fa fa-diamond', 'fa fa-diamond', 'fa fa-paper-plane-o', 'fa 
  let openCards = [];
  let matchedCards = [];
 
- for (let i = 0; i < fullCards.length; i++) {
-   const card = document.createElement('li');
-   card.classList.add('card');
-   card.innerHTML = `<i class="${fullCards[i]}"></i>`;
-   deck.appendChild(card);
-   click(card);
+ // function to initialize game
+ function init() {
+   for (let i = 0; i < fullCards.length; i++) {
+     const card = document.createElement('li');
+     card.classList.add('card');
+     card.innerHTML = `<i class="${fullCards[i]}"></i>`;
+     deck.appendChild(card);
+     //Invokes click function
+     click(card);
+   }
  }
 
  // Card Event Listener function (flips card)
@@ -82,6 +86,8 @@ function youWon() {
   }
 }
 
+// Initialize game
+init();
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
