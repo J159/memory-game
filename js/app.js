@@ -86,6 +86,20 @@ function youWon() {
   }
 }
 
+const restartBtn = document.querySelector('.restart');
+restartBtn.addEventListener('click', function() {
+  // Clears deck
+  deck.innerHTML = "";
+
+  // Calls 'init' function to re-initialize game
+  init();
+
+  // Resets matchedCards variables
+  matchedCards = [];
+})
+
+
+
 // Initialize game
 init();
 
