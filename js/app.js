@@ -37,14 +37,14 @@ const fullCards = ['fa fa-diamond', 'fa fa-diamond', 'fa fa-paper-plane-o', 'fa 
      const previousCard = openCards[0];
 
      if (openCards.length === 1) {
-       card.classList.add('open', 'show');
+       card.classList.add('open', 'show', 'disable');
        openCards.push(this);
 
        // Call function to compare open cards
        compare(currentCard, previousCard);
 
      } else {
-       card.classList.add('open', 'show');
+       card.classList.add('open', 'show', 'disable');
        openCards.push(this);
      }
 
@@ -74,8 +74,8 @@ const fullCards = ['fa fa-diamond', 'fa fa-diamond', 'fa fa-paper-plane-o', 'fa 
      // Allow 2nd card to display - timeout for 550ms
      setTimeout(function() {
        console.log('No Match~!');
-       currentCard.classList.remove('open', 'show');
-       previousCard.classList.remove('open', 'show');
+       currentCard.classList.remove('open', 'show', 'disable');
+       previousCard.classList.remove('open', 'show', 'disable');
      }, 550);
    }
  }

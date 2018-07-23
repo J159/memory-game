@@ -81,6 +81,11 @@ h1 {
     font-size: 33px;
 }
 
+/* Prevents clicking on same card to obtain match */
+.deck .card.disable {
+  pointer-events: none;
+}
+
 /*
  * Styles for the Score Panel
  */
