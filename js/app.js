@@ -20,6 +20,7 @@ const fullCards = ['fa fa-diamond', 'fa fa-diamond', 'fa fa-paper-plane-o', 'fa 
 
  // function to initialize game
  function init() {
+   shuffle(fullCards);
    for (let i = 0; i < fullCards.length; i++) {
      const card = document.createElement('li');
      card.classList.add('card');
