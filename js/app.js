@@ -99,18 +99,41 @@ movesContainer.innerHTML = 0;
 function addMove() {
   moves++;
   movesContainer.innerHTML = moves;
+  // Check Star Rating
+  rating();
+}
+
+// Star Rating System
+const starRating = document.querySelector('.stars');
+
+function rating() {
+  switch(moves) {
+    case 10:
+      starRating.innerHTML = `<li><i class="fa fa-star"></i></li>
+      <li><i class="fa fa-star"></i></li>`;
+      break;
+    case 15:
+      starRating.innerHTML = `<li><i class="fa fa-star"></i></li>`;
+      break;
+    case 20:
+      starRating.innerHTML = ``;
+      break;
+  }
 }
 
 
-// Restart the game when clicking restart icon
+// restartBtn query selector
 const restartBtn = document.querySelector('.restart');
+
+// Click Event Listener: Restart game when clicking restart icon
 restartBtn.addEventListener('click', function() {
   // Clears deck
   deck.innerHTML = "";
-
+  // Reset Star Rating
+  starRating.innerHTML = `<li><i class="fa fa-star"></i></li>
+  <li><i class="fa fa-star"></i></li> <li><i class="fa fa-star"></i></li>`;
   // Calls 'init' function to re-initialize game
   init();
-
   // Resets matchedCards and move variables
   matchedCards = [];
   moves = 0;
@@ -142,6 +165,7 @@ function shuffle(array) {
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
  *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
+
  *  - if the list already has another card, check to see if the two cards match
  *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
  *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
