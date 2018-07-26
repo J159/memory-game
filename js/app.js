@@ -87,7 +87,7 @@ const fullCards = ['fa fa-diamond', 'fa fa-diamond', 'fa fa-paper-plane-o', 'fa 
 // Checks if game is complete
 function youWon() {
   if (matchedCards.length === fullCards.length) {
-    alert("YOU WON!!");
+    openModal();
   }
 }
 
