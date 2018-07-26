@@ -140,8 +140,6 @@ restartBtn.addEventListener('click', function() {
   movesContainer.innerHTML = moves;
 })
 
-
-
 // Initialize game
 init();
 
@@ -160,6 +158,35 @@ function shuffle(array) {
     return array;
 }
 
+/* Modal Code */
+
+// Get Modal element
+const modal = document.getElementById('modal');
+// Get modal close button
+const closeBtn = document.getElementsByClassName('closeBtn')[0];
+
+// Listen for click on modal x button, calls closeModal function
+closeBtn.addEventListener('click', closeModal);
+
+// Listen for outside click, closes modal
+window.addEventListener('click', outsideClick);
+
+// function to display Modal
+function openModal() {
+  modal.style.display= 'block';
+}
+
+// Modal close button will close modal
+function closeModal() {
+  modal.style.display = 'none';
+}
+
+// function to close modal if clicked outside box
+function outsideClick(event) {
+  if (event.target == modal) {
+    modal.style.display = 'none';
+  }
+}
 
 /*
  * set up the event listener for a card. If a card is clicked:
