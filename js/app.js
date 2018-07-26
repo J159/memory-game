@@ -60,7 +60,7 @@ const fullCards = ['fa fa-diamond', 'fa fa-diamond', 'fa fa-paper-plane-o', 'fa 
      console.log('Match!');
      // Push matched cards into variable
      matchedCards.push(currentCard, previousCard);
-
+     // Add match class to current/previous card
      currentCard.classList.add('match');
      previousCard.classList.add('match');
      // clear openCards when match is found
@@ -104,9 +104,9 @@ function addMove() {
   rating();
 }
 
-// Star Rating System
+// Star Rating query selector
 const starRating = document.querySelector('.stars');
-
+// Star Rating function
 function rating() {
   switch(moves) {
     case 10:
@@ -121,7 +121,6 @@ function rating() {
       break;
   }
 }
-
 
 // restartBtn query selector
 const restartBtn = document.querySelector('.restart');
