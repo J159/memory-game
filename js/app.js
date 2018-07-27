@@ -20,7 +20,7 @@ const fullCards = ['fa fa-diamond', 'fa fa-diamond', 'fa fa-paper-plane-o', 'fa 
 
  // function to initialize game
  function init() {
-   shuffle(fullCards);
+   // shuffle(fullCards);
    for (let i = 0; i < fullCards.length; i++) {
      const card = document.createElement('li');
      card.classList.add('card');
@@ -173,7 +173,9 @@ window.addEventListener('click', outsideClick);
 
 // function to display Modal
 function openModal() {
+  score();
   modal.style.display= 'block';
+  // IN here we want to call a function that collects the star rating, moves, and timer
 }
 
 // Modal close button will close modal
@@ -187,6 +189,36 @@ function outsideClick(event) {
     modal.style.display = 'none';
   }
 }
+
+// TEST CODE:
+
+const modalBody = document.getElementsByClassName('modal-body');
+
+const modalScore = document.getElementById('modal-score');
+
+function score() {
+  modalScore.innerHTML = `Rating: ${starRating.innerHTML} Moves: ${movesContainer.innerHTML} Time:`
+}
+
+// Play Again query selector
+const playAgain = document.querySelector('.modal-footer');
+
+// Click Event Listener: Restart game when clicking Play Again footer
+playAgain.addEventListener('click', function() {
+  // Clears deck
+  deck.innerHTML = "";
+  // Reset Star Rating
+  starRating.innerHTML = `<li><i class="fa fa-star"></i></li>
+  <li><i class="fa fa-star"></i></li> <li><i class="fa fa-star"></i></li>`;
+  // Calls 'init' function to re-initialize game
+  init();
+  // Resets matchedCards and move variables
+  matchedCards = [];
+  moves = 0;
+  movesContainer.innerHTML = moves;
+  closeModal();
+})
+
 
 /*
  * set up the event listener for a card. If a card is clicked:
