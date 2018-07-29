@@ -217,18 +217,42 @@ playAgain.addEventListener('click', function() {
   closeModal();
 })
 
-// NOTE: experimental Timer functionality
+// timer variables
+let sec = 0;
+let min = 0;
+let active = false;
 
+// Timer function. Runs every one second if active set to true
 function timer() {
-  let sec = 0;
-  let min = 0;
-  sec++
-  if (sec == 59) {
-    min++
-    sec = 0;
-  }
+  if (active) {
+    sec++;
+    if (sec < 10) {
+      sec = "0" + sec;
+      if (min < 1) {
+        min = 0 + "0"
+      }
+    }
+    if (sec == 60) {
+      min++
+      sec = 0 + "0";
+      if (min < 10) {
+        min = "0" + min;
+      }
+    }
 
-  document.getElementById('timer').innerHTML = `${min}:${sec}`;
+    document.getElementById('timer').innerHTML = `${min}:${sec}`;
+    // repeat timer every 1 second
+    setTimeout(timer, 1000)
+  }
+}
+
+function startTimer() {
+  active = true;
+  timer();
+}
+
+function stopTimer() {
+  active = false;
 }
 
 /*
