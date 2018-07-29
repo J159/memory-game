@@ -87,7 +87,9 @@ const fullCards = ['fa fa-diamond', 'fa fa-diamond', 'fa fa-paper-plane-o', 'fa 
 // Checks if game is complete
 function youWon() {
   if (matchedCards.length === fullCards.length) {
-    openModal();
+    stopTimer();
+    // setTimeout allows final move count to be recorded in modal
+    setTimeout(openModal, 10);
   }
 }
 
@@ -195,7 +197,7 @@ const modalScore = document.getElementById('modal-score');
 
 // function to retrieve score and place inside modal (Star Rating, Move Counter, and Ending Time)
 function score() {
-  modalScore.innerHTML = `Rating: ${starRating.innerHTML} | Moves: ${movesContainer.innerHTML} | Time:`
+  modalScore.innerHTML = `Rating: ${starRating.innerHTML} &nbsp; | &nbsp; Moves: ${movesContainer.innerHTML} &nbsp; | &nbsp; Time: ${timerCount.innerHTML}`
 }
 
 // Play Again query selector
@@ -221,6 +223,7 @@ playAgain.addEventListener('click', function() {
 let sec = 0;
 let min = 0;
 let active = false;
+const timerCount = document.querySelector('#timer');
 
 // Timer function. Runs every one second if active set to true
 function timer() {
@@ -240,7 +243,7 @@ function timer() {
       }
     }
 
-    document.getElementById('timer').innerHTML = `${min}:${sec}`;
+    timerCount.innerHTML = `${min}:${sec}`;
     // repeat timer every 1 second
     setTimeout(timer, 1000)
   }
@@ -254,6 +257,8 @@ function startTimer() {
 function stopTimer() {
   active = false;
 }
+
+startTimer();
 
 /*
  * set up the event listener for a card. If a card is clicked:

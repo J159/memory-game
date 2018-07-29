@@ -183,3 +183,7 @@ h1 {
   list-style: none;
   display: inline;
 }
+
+.congrats-text {
+  font-size: 40px;
+}
