@@ -190,12 +190,10 @@ function outsideClick(event) {
   }
 }
 
-// TEST CODE:
-
-const modalBody = document.getElementsByClassName('modal-body');
-
+// Get modal-score variable:
 const modalScore = document.getElementById('modal-score');
 
+// function to retrieve score and place inside modal (Star Rating, Move Counter, and Ending Time)
 function score() {
   modalScore.innerHTML = `Rating: ${starRating.innerHTML} | Moves: ${movesContainer.innerHTML} | Time:`
 }
@@ -219,6 +217,19 @@ playAgain.addEventListener('click', function() {
   closeModal();
 })
 
+// NOTE: experimental Timer functionality
+
+function timer() {
+  let sec = 0;
+  let min = 0;
+  sec++
+  if (sec == 59) {
+    min++
+    sec = 0;
+  }
+
+  document.getElementById('timer').innerHTML = `${min}:${sec}`;
+}
 
 /*
  * set up the event listener for a card. If a card is clicked:
