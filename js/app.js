@@ -197,7 +197,7 @@ const modalBody = document.getElementsByClassName('modal-body');
 const modalScore = document.getElementById('modal-score');
 
 function score() {
-  modalScore.innerHTML = `Rating: ${starRating.innerHTML} Moves: ${movesContainer.innerHTML} Time:`
+  modalScore.innerHTML = `Rating: ${starRating.innerHTML} | Moves: ${movesContainer.innerHTML} | Time:`
 }
 
 // Play Again query selector

@@ -113,6 +113,11 @@ h1 {
     cursor: pointer;
 }
 
+.timer {
+  padding-left: 80px;
+  display: inline-block;
+}
+
 /*
  * Styles for Modal Win screen
  */
