@@ -140,6 +140,7 @@ restartBtn.addEventListener('click', function() {
   matchedCards = [];
   moves = 0;
   movesContainer.innerHTML = moves;
+  resetTimer();
 })
 
 // Initialize game
@@ -217,6 +218,8 @@ playAgain.addEventListener('click', function() {
   moves = 0;
   movesContainer.innerHTML = moves;
   closeModal();
+  resetTimer();
+  startTimer();
 })
 
 // timer variables
@@ -256,6 +259,11 @@ function startTimer() {
 
 function stopTimer() {
   active = false;
+}
+
+function resetTimer() {
+  sec = 0;
+  min = 0;
 }
 
 startTimer();
