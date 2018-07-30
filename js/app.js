@@ -122,6 +122,14 @@ function rating() {
     case 25:
       starRating.innerHTML = ``;
       break;
+    case 30:
+      starRating.innerHTML = `<li>Need some help?...</li>`;
+      break;
+    case 35:
+      starRating.innerHTML = `<li>ARE YOU DOING THIS ON PURPOSE?!?!</li>`
+      //adjust .score-panel width to fit text
+      document.querySelector('.score-panel').style.width = "500px";
+      break;
   }
 }
 
@@ -229,7 +237,7 @@ let active = false;
 let token = false;
 const timerCount = document.querySelector('#timer');
 
-// Timer function. Runs every one second if active set to true
+// Timer function. Runs every second if active set to true
 function timer() {
   if (active) {
     sec++;
@@ -271,9 +279,13 @@ function resetTimer() {
   timerCount.innerHTML = `0${min}:0${sec}`;
   active = false;
   token = false;
+  resetStyle();
 }
 
-// startTimer();
+// function to reset .score-panel width to normal
+function resetStyle() {
+  document.querySelector('.score-panel').style.width = "345px";
+}
 
 /*
  * set up the event listener for a card. If a card is clicked:
