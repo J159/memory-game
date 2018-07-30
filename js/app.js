@@ -20,7 +20,7 @@ const fullCards = ['fa fa-diamond', 'fa fa-diamond', 'fa fa-paper-plane-o', 'fa 
 
  // function to initialize game
  function init() {
-   // shuffle(fullCards);
+   shuffle(fullCards);
    for (let i = 0; i < fullCards.length; i++) {
      const card = document.createElement('li');
      card.classList.add('card');
@@ -112,14 +112,14 @@ const starRating = document.querySelector('.stars');
 // Star Rating function
 function rating() {
   switch(moves) {
-    case 10:
+    case 15:
       starRating.innerHTML = `<li><i class="fa fa-star"></i></li>
       <li><i class="fa fa-star"></i></li>`;
       break;
-    case 15:
+    case 20:
       starRating.innerHTML = `<li><i class="fa fa-star"></i></li>`;
       break;
-    case 20:
+    case 25:
       starRating.innerHTML = ``;
       break;
   }
