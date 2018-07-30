@@ -34,6 +34,7 @@ const fullCards = ['fa fa-diamond', 'fa fa-diamond', 'fa fa-paper-plane-o', 'fa 
  // Card Event Listener function (flips card)
  function click(card) {
    card.addEventListener('click', function() {
+     startTimer();
      const currentCard = this;
      const previousCard = openCards[0];
 
@@ -219,13 +220,13 @@ playAgain.addEventListener('click', function() {
   movesContainer.innerHTML = moves;
   closeModal();
   resetTimer();
-  startTimer();
 })
 
 // timer variables
 let sec = 0;
 let min = 0;
 let active = false;
+let token = false;
 const timerCount = document.querySelector('#timer');
 
 // Timer function. Runs every one second if active set to true
@@ -253,8 +254,11 @@ function timer() {
 }
 
 function startTimer() {
-  active = true;
-  timer();
+  if (!token) {
+    token = true;
+    active = true;
+    timer();
+  }
 }
 
 function stopTimer() {
@@ -264,9 +268,12 @@ function stopTimer() {
 function resetTimer() {
   sec = 0;
   min = 0;
+  timerCount.innerHTML = `0${min}:0${sec}`;
+  active = false;
+  token = false;
 }
 
-startTimer();
+// startTimer();
 
 /*
  * set up the event listener for a card. If a card is clicked:
