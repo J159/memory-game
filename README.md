@@ -1,20 +1,17 @@
-# Memory Game Project
+# Memory Game!
 
-## Table of Contents
+## Description
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+This is Project 2/Memory Game for Udacity's Front End Web Development Nanodegree.
 
-## Instructions
+Created using HTML, CSS, and vanilla JavaScript. Game board design/layout provided by Udacity. Shuffle function provided by http://stackoverflow.com/a/2450976
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+## How To Play
 
-To get started, open `js/app.js` and start building out the app's functionality
+Click any tile to reveal the icon. On first click, the match begins along with the timer. The goal is to match all tiles in the least amount of moves. The more moves you make, the lower your star rating will be. There is no penalty for duration. Just do your best!
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+Just for fun, I've added alternate text for over 30 and 35 moves. Feel free to purposely mismatch that many times...
 
-## Contributing
+Don't wanna download/clone? No problem! Play the game [right here!](https://j159.github.io/memory-game/) (hosted by GitHub Pages)
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+Have fun!
