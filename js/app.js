@@ -140,7 +140,8 @@ restartBtn.addEventListener('click', function() {
   <li><i class="fa fa-star"></i></li> <li><i class="fa fa-star"></i></li>`;
   // Calls 'init' function to re-initialize game
   init();
-  // Resets matchedCards and move variables
+  // Resets openCards, matchedCards, and move variables
+  openCards = [];
   matchedCards = [];
   moves = 0;
   movesContainer.innerHTML = moves;
@@ -217,7 +218,8 @@ playAgain.addEventListener('click', function() {
   <li><i class="fa fa-star"></i></li> <li><i class="fa fa-star"></i></li>`;
   // Calls 'init' function to re-initialize game
   init();
-  // Resets matchedCards and move variables
+  // Resets openCards, matchedCards, and move variables
+  openCards = [];
   matchedCards = [];
   moves = 0;
   movesContainer.innerHTML = moves;
