@@ -49,16 +49,12 @@ const fullCards = ['fa fa-diamond', 'fa fa-diamond', 'fa fa-paper-plane-o', 'fa 
        card.classList.add('open', 'show', 'disable');
        openCards.push(this);
      }
-
-    // console log for testing purposes - will delete later
-    console.log(card.innerHTML);
    })
  }
 
 // Compares current and previous cards to determine match
  function compare(currentCard, previousCard) {
    if (currentCard.innerHTML === previousCard.innerHTML) {
-     console.log('Match!');
      // Push matched cards into variable
      matchedCards.push(currentCard, previousCard);
      // Add match class to current/previous card
@@ -75,7 +71,6 @@ const fullCards = ['fa fa-diamond', 'fa fa-diamond', 'fa fa-paper-plane-o', 'fa 
      openCards = [];
      // Allow 2nd card to display - timeout for 550ms
      setTimeout(function() {
-       console.log('No Match~!');
        currentCard.classList.remove('open', 'show', 'disable');
        previousCard.classList.remove('open', 'show', 'disable');
      }, 550);
